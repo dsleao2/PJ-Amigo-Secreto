@@ -4,7 +4,10 @@ function adicionar() {
      let amigo = document.getElementById('nome-amigo');
     if (amigo.value == ''){
         alert('Informe o nome do amigo!');
+        //não executar todo o resto do código
+        return;
     }
+
      let lista = document.getElementById('lista-amigos');
     amigos.push(amigo.value);
     if (lista.textContent == '') {
@@ -19,8 +22,14 @@ function adicionar() {
 }
 
 function sortear() {
-    embaralha(amigos);
+//validando numero mínimo de participantes 
+if (amigos.length <4){
 
+    alert('Adicione pelo menos 4 amigos!');
+    return;
+
+}
+    embaralha(amigos);
     let sorteio = document.getElementById('lista-sorteio');
     //Então, criaremos um for() onde, dentro dos parâmetros, vamos declarar uma variável i, por exemplo, que começa com zero: let i = 0. Precisamos percorrer até a última posição do nosso array, que será representado por amigos.length.
     //No entanto, como o array começa com o índice 0, o último índice, que representamos por i será um número menor que a quantidade de elementos. Por exemplo, uma lista de 10 itens tem índices de 0 a 9. Representamos isso com i < amigos.length. Por fim, aumentamos o i em 1 enquanto ele for menor que o tamanho da lista, usando i++.
