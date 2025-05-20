@@ -8,12 +8,12 @@ function adicionar() {
         return;
     }
 //Array amigos.includes, já está incluso aí dentro o amigo.value?"
-    if (amigos.includes(amigo.value)) {
-
-        alert('Nome ja adicionado!');
-        //não executar todo o resto do código
+     if (amigos.includes(amigo.value)) {
+        alert('Nome já adicionado!');
         return;
     }
+
+    
     let lista = document.getElementById('lista-amigos');
     amigos.push(amigo.value);
     if (lista.textContent == '') {
