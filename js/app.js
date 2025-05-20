@@ -1,14 +1,20 @@
 let amigos = [];
 
 function adicionar() {
-     let amigo = document.getElementById('nome-amigo');
-    if (amigo.value == ''){
+    let amigo = document.getElementById('nome-amigo');
+    if (amigo.value == '') {
         alert('Informe o nome do amigo!');
         //não executar todo o resto do código
         return;
     }
+//Array amigos.includes, já está incluso aí dentro o amigo.value?"
+    if (amigos.includes(amigo.value)) {
 
-     let lista = document.getElementById('lista-amigos');
+        alert('Nome ja adicionado!');
+        //não executar todo o resto do código
+        return;
+    }
+    let lista = document.getElementById('lista-amigos');
     amigos.push(amigo.value);
     if (lista.textContent == '') {
         lista.textContent = amigo.value;
@@ -22,13 +28,13 @@ function adicionar() {
 }
 
 function sortear() {
-//validando numero mínimo de participantes 
-if (amigos.length <4){
+    //validando numero mínimo de participantes 
+    if (amigos.length < 4) {
 
-    alert('Adicione pelo menos 4 amigos!');
-    return;
+        alert('Adicione pelo menos 4 amigos!');
+        return;
 
-}
+    }
     embaralha(amigos);
     let sorteio = document.getElementById('lista-sorteio');
     //Então, criaremos um for() onde, dentro dos parâmetros, vamos declarar uma variável i, por exemplo, que começa com zero: let i = 0. Precisamos percorrer até a última posição do nosso array, que será representado por amigos.length.
